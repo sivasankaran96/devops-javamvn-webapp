@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: netflix-deploy
+  name: loksai-eta-deploy
   labels:
-    app: gowrisiva/netflix
+    app: netflix
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: gowrisiva/netflix
+      app: netflix
   template:
     metadata:
       labels:
-        app: gowrisiva/netflix
+        app: netflix
     spec:
       containers:
       - name: netflix-container
@@ -25,10 +25,10 @@ kind: Service
 metadata:
   name: netflix-np-service
   labels:
-    app: gowrisiva/netflix
+    app: netflix
 spec:
   selector:
-    app: gowrisiva/netflix
+    app: netflix
 
   type: NodePort
   ports:
