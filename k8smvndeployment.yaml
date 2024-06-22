@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: loksai-eta-deploy
   labels:
-    app: netflix
+    app: NETFLIX-1.2.2.war
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: netflix
+      app: NETFLIX-1.2.2.war
   template:
     metadata:
       labels:
-        app: netflix
+        app: NETFLIX-1.2.2.war
     spec:
       containers:
       - name: netflix-container
@@ -25,10 +25,10 @@ kind: Service
 metadata:
   name: netflix-np-service
   labels:
-    app: netflix
+    app: NETFLIX-1.2.2.war
 spec:
   selector:
-    app: netflix
+    app: NETFLIX-1.2.2.war
 
   type: NodePort
   ports:
