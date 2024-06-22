@@ -11,7 +11,7 @@ pipeline {
         stage('SCM_Checkout') {
             steps {
                 echo 'Perform SCM Checkout'
-				git 'https://github.com/Edu-DCP-May20/devops-java-webapp.git'
+				git 'https://github.com/sivasankaran96/devops-javamvn-webapp.git'
             }
         }
         stage('Application_Build') {
@@ -23,9 +23,9 @@ pipeline {
         stage('Build Docker Image') {
             steps {
 				sh 'docker version'
-				sh "docker build -t loksaieta/loksai-eta-app:${BUILD_NUMBER} ."
+				sh "docker build -t gowrisiva/netflix:${BUILD_NUMBER} ."
 				sh 'docker image list'
-				sh "docker tag loksaieta/loksai-eta-app:${BUILD_NUMBER} loksaieta/loksai-eta-app:latest"
+				sh "docker tag gowrisiva/netflix:${BUILD_NUMBER} gowrisiva/netflix:latest"
             }
         }
 		stage('Login2DockerHub') {
@@ -36,7 +36,7 @@ pipeline {
 		}
 		stage('Publish_to_Docker_Registry') {
 			steps {
-				sh "docker push loksaieta/loksai-eta-app:latest"
+				sh "docker push gowrisiva/netflix:latest"
 			}
 		}
 		stage('Deploy to Kubernetes') {
